@@ -1,0 +1,50 @@
+/* 테마 위에 덧입히는 우리 앱 스타일 — 색은 Bootstrap 변수(--bs-*)를 사용 */
+body { font-family: 'Pretendard', system-ui, sans-serif; }
+
+.hero {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 55%, var(--bs-primary) 160%);
+  border: 1px solid var(--bs-border-color);
+  color: #fff;
+}
+.hero-tag { color: var(--bs-warning); letter-spacing: .08em; }
+
+.menu-card { transition: transform .15s, border-color .15s; }
+.menu-card:hover { transform: translateY(-3px); border-color: var(--bs-primary); }
+
+.clock {
+  font-family: ui-monospace, 'SF Mono', Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(2.6rem, 9vw, 4rem); font-weight: 700; line-height: 1;
+}
+.lap-list { max-height: 200px; overflow-y: auto; }
+
+.mini-timer {
+  position: fixed; left: 1rem; bottom: 1rem; z-index: 1030;
+  display: flex; gap: .9rem; padding: .55rem .95rem; border-radius: 2rem;
+  background: var(--bs-body-bg); color: var(--bs-body-color);
+  border: 1px solid var(--bs-primary); box-shadow: 0 .4rem 1rem rgba(0,0,0,.4);
+  font-weight: 700; font-variant-numeric: tabular-nums;
+}
+.mini-timer.done { border-color: var(--bs-warning); color: var(--bs-warning); animation: pulse 1s infinite; }
+@keyframes pulse { 50% { opacity: .55; } }
+
+.set-no {
+  width: 1.8rem; height: 1.8rem; flex: none; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bs-secondary-bg); font-size: .85rem; font-weight: 700;
+}
+.set-row.is-done .set-no { background: var(--bs-success); color: #fff; }
+
+.log-chip {
+  display: inline-flex; align-items: center; padding: .2rem .6rem; border-radius: 1rem;
+  background: var(--bs-secondary-bg); font-size: .85rem; font-variant-numeric: tabular-nums;
+}
+.log-chip .btn-close { font-size: .55rem; }
+
+.day-btn {
+  background: var(--bs-body-bg); color: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color); transition: border-color .15s, background .15s;
+}
+.day-btn.is-rest { opacity: .6; }
+.day-btn:hover { border-color: var(--bs-primary); }
+.day-btn.active { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; opacity: 1; }
